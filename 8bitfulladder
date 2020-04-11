@@ -1,7 +1,5 @@
-
 -- 8 bitlik full adder
 -- OGUZ BALCI
--- Karadeniz Technical University
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -9,7 +7,7 @@ entity fulladder1 is
   port(
 	A: in std_logic_vector(7 downto 0);
 	B: in std_logic_vector(7 downto 0);
-	S: out std_logic_vector(7 downto 0);
+	S: out std_logic_vector(8 downto 0);
 	Cin: in std_logic);
   end fulladder1;
   architecture Behavioral of fulladder1 is
@@ -33,5 +31,6 @@ S(6) <= (A(6) XOR B(6)) XOR Cout(5);
 Cout(6) <= (A(6) AND B(6)) OR (Cout(5) AND (A(6) XOR B(6))) ;
 S(7) <= (A(7) XOR B(7)) XOR Cout(6);
 Cout(7) <= (A(7) AND B(7)) OR (Cout(6) AND (A(7) XOR B(7))) ;
+S(8) <= Cout(7);  
 
 end Behavioral;
